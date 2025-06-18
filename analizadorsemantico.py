@@ -3,7 +3,7 @@ import pandas as pd
 import analizadorsintactico as sintactico
 import anytree as at
 import numpy as np
-
+# ultima reunion: 27/10/2025
 # AUX7 - AUX6 - Sii - AUX5 - AUX4 -EAR4 - AUX2 - EV1 (usan arbol.children)
 # estado es lo que usamos como variables 
 class elemEstado:# es necesario agregar lexema?
