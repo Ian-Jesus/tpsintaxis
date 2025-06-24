@@ -3,7 +3,7 @@ import pandas as pd
 import analizadorsintactico as sintactico
 import anytree as at
 import numpy as np
-# ultima reunion: 27/10/2025
+# ultima reunion: 24/06/2025
 # AUX7 - AUX6 - Sii - AUX5 - AUX4 -EAR4 - AUX2 - EV1 (usan arbol.children)
 # estado es lo que usamos como variables 
 class elemEstado:# es necesario agregar lexema?
@@ -56,7 +56,17 @@ def modificarMatriz(estado, nombre, fila, columna, valor):# modificarMatriz por 
         variable.valor[fila-1, columna-1] = valor
       else:
         raise Exception(f'La variable {nombre} no es una matriz')
-  
+
+def modificarMatrizCompleta(estado, nombre, matriz):
+  for variable in estado:
+    if variable.id == nombre:
+      if variable.tipo == 'matriz':
+        variable.valor = matriz
+        if matriz.shape[0] != variable.fila or matriz.shape[1] != variable.columna:
+          raise Exception('La matriz proporcionada no coincide con las dimensiones de la variable')
+        variable.valor = matriz
+      else:
+        raise Exception(f'La variable {nombre} no es una matriz')
 def obtenerVar(arbol,estado,tipo,fil,col):
   pass
   
